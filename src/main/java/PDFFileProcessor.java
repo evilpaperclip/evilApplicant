@@ -15,8 +15,8 @@ import org.apache.pdfbox.text.PDFTextStripper;
 
 public class PDFFileProcessor {
 
-	String documentFilePath;
-	PDDocument document;
+	private String documentFilePath;
+	private PDDocument document;
 
 	public PDFFileProcessor() {
 	}
@@ -40,13 +40,6 @@ public class PDFFileProcessor {
 		String pdfOutput = pdfStripper.getText(document);
 		document.close();
 		return pdfOutput;
-	}
-	
-	private String generateNewHiddenFilename() {
-		String[] documentFilePathAndExtension = documentFilePath.split("\\.");
-		documentFilePathAndExtension[0] += "_hidden";
-		return  "".join(".", documentFilePathAndExtension);
-		
 	}
 	
 	public void addHiddenText(String textToHide) throws IOException {
